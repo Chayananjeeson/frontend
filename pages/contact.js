@@ -76,8 +76,6 @@ export default function contact() {
   </div>
 </div>
 
-
-
     <div class="row align-items-md-stretch">
       <div class="col-md-6">
         <div class="h-100 p-5 text-bg-success  rounded-3">
