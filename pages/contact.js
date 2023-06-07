@@ -50,24 +50,7 @@ export default function index() {
 
 <div>
 
-<div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
-  <div className="carousel-inner">
-    <div className="carousel-item active" data-bs-interval={1000}>
-      <img src="/gtr1.jpg" className="d-block w-100" alt="gtr1" />
-    </div>
-    <div className="carousel-item" data-bs-interval={1000}>
-      <img src="/gtr2.jpg" className="d-block w-100" alt="gtr2" />
-    </div>
-  </div>
-  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-    <span className="carousel-control-prev-icon" aria-hidden="true" />
-    <span className="visually-hidden">Previous</span>
-  </button>
-  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-    <span className="carousel-control-next-icon" aria-hidden="true" />
-    <span className="visually-hidden">Next</span>
-  </button>
-</div>
+
 
 
 </div>
@@ -76,8 +59,18 @@ export default function index() {
 <br />
 <br /> 
 <main>
+  <center>
+<div className="w3-padding-64 w3-content w3-text-grey" id="contact">
+  <h2 className="w3-text-light-grey">contact</h2>
+  <hr style={{width: 200}} className="w3-opacity" />
+  <div className="w3-section">
+    <p><i className="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right" /> CHIANGMAI , THAILAND</p>
+    <p><i className="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right" /> Phone: 0970527606</p>
+    <p><i className="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: jetski@gmail.com</p>
+  </div><br />
 
-
+</div>
+</center>
 </main>
 <br />
 <br />
