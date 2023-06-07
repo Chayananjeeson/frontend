@@ -66,6 +66,40 @@ export default function contact() {
     <p><i className="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right" /> Phone: 0650563214</p>
     <p><i className="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: wwedied@gmail.com</p>
   </div><br />
+  <main>
+  <div class="container py-4">
+   
+  <div className="p-5 mb-4 bg-body-tertiary rounded-3" style={{backgroundImage: 'url(fb.png)', height: '400px'}}>
+  <div className="container-fluid py-5">
+    <h1 className="display-5 fw-bold text-white">Facebook</h1>
+    <a href="https://www.facebook.com/village.bann" className="btn btn-dark btn-lg" role="button">แอดเลย</a>
+  </div>
+</div>
+
+
+
+    <div class="row align-items-md-stretch">
+      <div class="col-md-6">
+        <div class="h-100 p-5 text-bg-success  rounded-3">
+          <h2>Line</h2>
+          <p>0650563214</p>
+          <a href="https://line.me/ti/p/_a6LxGYycP" className="btn btn-outline-light" role="button">แอดเลย</a>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+          <h2>Email</h2>
+          <a href="mailto:wwedied@gmail.com" class="btn btn-outline-secondary" type="button">ติดต่อเลย</a>
+        </div>
+      </div>
+    </div>
+
+    <footer class="pt-3 mt-4 text-body-secondary border-top">
+      &copy; 2023
+    </footer>
+  </div>
+</main>
+<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 
 </div>
 </center>
