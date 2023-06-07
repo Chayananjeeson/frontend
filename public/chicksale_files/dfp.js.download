@@ -1,0 +1,2 @@
+window.isDfpEnabled = true
+console.info('info - DFP ads is enabled')

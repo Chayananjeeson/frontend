@@ -7,11 +7,11 @@ export default function index() {
   return (
     <>
     <Head>
-      <title>jett</title>
+      <title>หน้าแรก</title>
     </Head>
   
   <header>
-<nav className="navbar navbar-expand-lg bg-danger">
+<nav className="navbar navbar-expand-lg bg-info">
   <div className="container-fluid">
     <a className="navbar-brand" href="#">Navbar</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,10 +30,8 @@ export default function index() {
             บริการของเรา
           </a>
           <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="#">ขายไก่</a></li>
-            <li><a className="dropdown-item" href="#">ขายหมา</a></li>
-            <li><hr className="dropdown-divider" /></li>
-            <li><a className="dropdown-item" href="#">ขายคน</a></li>
+            <li><a className="dropdown-item" href="#">1</a></li>
+            <li><a className="dropdown-item" href="#">2</a></li>
           </ul>
         </li>
         <li className="nav-item">
@@ -50,22 +48,23 @@ export default function index() {
 
 <div>
 
-<div id="carouselExampleInterval" className="carousel slide" data-bs-ride="carousel">
-  <div className="carousel-inner">
-    <div className="carousel-item active" data-bs-interval={1000}>
-      <img src="/gtr1.jpg" className="d-block w-100" alt="gtr1" />
+<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="1000">
+      <img src="/cow.jpg" class="d-block w-100" alt="cow" />
     </div>
-    <div className="carousel-item" data-bs-interval={1000}>
-      <img src="/gtr2.jpg" className="d-block w-100" alt="gtr2" />
+    <div class="carousel-item" data-bs-interval="1000">
+      <img src="/chick.jpg" class="d-block w-100" alt="chick" />
     </div>
   </div>
-  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-    <span className="carousel-control-prev-icon" aria-hidden="true" />
-    <span className="visually-hidden">Previous</span>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
   </button>
-  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-    <span className="carousel-control-next-icon" aria-hidden="true" />
-    <span className="visually-hidden">Next</span>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
   </button>
 </div>
 

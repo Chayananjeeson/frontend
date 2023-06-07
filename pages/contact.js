@@ -3,15 +3,15 @@ import Head from 'next/head'
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function index() {
+export default function contact() {
   return (
     <>
     <Head>
-      <title>jett</title>
+      <title>ติดต่อ</title>
     </Head>
   
   <header>
-<nav className="navbar navbar-expand-lg bg-danger">
+<nav className="navbar navbar-expand-lg bg-info">
   <div className="container-fluid">
     <a className="navbar-brand" href="#">Navbar</a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -30,10 +30,8 @@ export default function index() {
             บริการของเรา
           </a>
           <ul className="dropdown-menu">
-            <li><a className="dropdown-item" href="#">ขายไก่</a></li>
-            <li><a className="dropdown-item" href="#">ขายหมา</a></li>
-            <li><hr className="dropdown-divider" /></li>
-            <li><a className="dropdown-item" href="#">ขายคน</a></li>
+            <li><a className="dropdown-item" href="#">1</a></li>
+            <li><a className="dropdown-item" href="#">2</a></li>
           </ul>
         </li>
         <li className="nav-item">
@@ -65,8 +63,8 @@ export default function index() {
   <hr style={{width: 200}} className="w3-opacity" />
   <div className="w3-section">
     <p><i className="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right" /> CHIANGMAI , THAILAND</p>
-    <p><i className="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right" /> Phone: 0970527606</p>
-    <p><i className="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: jetski@gmail.com</p>
+    <p><i className="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right" /> Phone: 0650563214</p>
+    <p><i className="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: wwedied@gmail.com</p>
   </div><br />
 
 </div>
