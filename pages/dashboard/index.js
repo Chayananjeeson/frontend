@@ -8,7 +8,7 @@ import Swal from 'sweetalert2';
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css"></link>
 
 export async function getStaticProps() {
-  const res = await fetch('http://localhost:3000/api/user');
+  const res = await fetch('https://cf5b-2001-44c8-428c-ac65-4823-1737-f822-2341.ngrok-free.app/api/user');
   const posts = await res.json();
 
 
@@ -36,7 +36,7 @@ export async function getStaticProps() {
   
     if (result.isConfirmed) {
       // Perform the deletion using fetch
-      await fetch('http://localhost:3000/api/user?id=' + id, {
+      await fetch('https://cf5b-2001-44c8-428c-ac65-4823-1737-f822-2341.ngrok-free.app/api/user?id=' + id, {
         method: 'DELETE',
       });
   
@@ -52,14 +52,7 @@ export async function getStaticProps() {
     }
   };
   
-  // const handleDelete = async (id) =>{
-    
-  //   fetch('http://localhost:3000/api/user?id='+id,{
-  //     method: 'DELETE',
-  //   })
-  //   return router.reload('/dashboard')
-  // }
- 
+
   if (session) {
     return (
       <>

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from "next/router";
 
 export async function getStaticProps() {
-  const res = await fetch('http://localhost:3000/api/user');
+  const res = await fetch('https://cf5b-2001-44c8-428c-ac65-4823-1737-f822-2341.ngrok-free.app/api/user');
   const posts = await res.json();
 
   return {
@@ -46,40 +46,8 @@ export default function Component({ posts }) {
       })
       .catch((error) => {
         console.error('Error:', error);
-      });
-  // const handleSubmit = (event) => {
- 
-  //   event.preventDefault();
-  //   const data = new FormData(event.currentTarget);
-  //   const jsonData = {
-  //     studentid: data.get('studentid'),
-  //     firstname: data.get('firstname'),
-  //     lastname: data.get('lastname'),
-  //     username: data.get('username'),
-  //     password: data.get('password'),
-  //     status: data.get('status')
-  //   }
-
-  //     fetch(`http://localhost:3000/api/user`, {
-  //       method: 'POST', // or 'PUT'
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify(jsonData),
-  //     })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       if (data.status == 'ok') {
-  //         router.push('/dashboard')
-  //       } else {
-  //         console.log('Add Data Not Success')
-  //         router.push('/dashboard')
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error:', error);
-  //     });
-
+      })
+      
   };
   
   if (session) {
