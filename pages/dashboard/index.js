@@ -1,5 +1,11 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import Link from 'next/link';
+import { useRouter } from "next/router";
+import Swal from 'sweetalert2';
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css"></link>
 
 export async function getStaticProps() {
   const res = await fetch('http://localhost:3000/api/user');
@@ -12,13 +18,52 @@ export async function getStaticProps() {
     },
   };
 }
-
-export default function Component({ posts }) {
+  
+  export default function Component({ posts }) {
   const { data: session } = useSession();
-
+  const router = useRouter();
+  
+  const handleDelete = async (id) => {
+    const result = await Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    });
+  
+    if (result.isConfirmed) {
+      // Perform the deletion using fetch
+      await fetch('http://localhost:3000/api/user?id=' + id, {
+        method: 'DELETE',
+      });
+  
+      // Reload the page
+      router.reload('/dashboard');
+  
+      // Show success message
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      );
+    }
+  };
+  
+  // const handleDelete = async (id) =>{
+    
+  //   fetch('http://localhost:3000/api/user?id='+id,{
+  //     method: 'DELETE',
+  //   })
+  //   return router.reload('/dashboard')
+  // }
+ 
   if (session) {
     return (
       <>
+      
       <nav class="navbar navbar-light bg-success">
         <div class="container-fluid">
           <div class="d-flex justify-content-between align-items-center w-100">
@@ -40,7 +85,7 @@ export default function Component({ posts }) {
         <table className="table">
           <thead className="thead-dark">
             <tr>
-              <th>ID</th>
+              <th>No.</th>
               <th>Student ID</th>
               <th>First Name</th>
               <th>Last Name</th>
@@ -66,7 +111,7 @@ export default function Component({ posts }) {
                       <button class="btn btn-success btn-sm rounded-0">Edit</button>
                    </li>
                     <li class="list-inline-item">
-                   <button class="btn btn-danger btn-sm rounded-0">Delete</button>
+                   <button class="btn btn-danger btn-sm rounded-0" onClick={() => handleDelete(post.id)}>Delete</button>
                       </li>
                          </ul>
                 </td>
@@ -83,10 +128,19 @@ export default function Component({ posts }) {
 
   return (
     <>
-      <div className="alert alert-danger" role="alert">
-        Not signed in <br />
-        <button className="btn btn-primary" onClick={() => signIn()}>Sign in</button>
+   
+    <div className="container d-flex justify-content-center align-items-center" style={{height: '100vh'}}>
+    <div className="card" style={{width: '18rem'}}>
+      <div className="card-body">
+        <div className="alert alert-danger" role="alert">
+          Not signed in <br />
+          <button className="btn btn-primary" onClick={() => signIn()}>Sign in</button>
+        </div>
       </div>
+    </div>
+  </div>
+
+
     </>
   );
 }
