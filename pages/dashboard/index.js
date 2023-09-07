@@ -7,22 +7,13 @@ import Swal from 'sweetalert2';
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css"></link>
 
-export async function getStaticProps() {
-  const res = await fetch('https://cf5b-2001-44c8-428c-ac65-4823-1737-f822-2341.ngrok-free.app/api/user');
-  const posts = await res.json();
 
-
-  return {
-    props: {
-      posts,
-    },
-  };
-}
   
   export default function Component({ posts }) {
   const { data: session } = useSession();
   const router = useRouter();
-  
+  //console.log("posts: ", posts)
+
   const handleDelete = async (id) => {
     const result = await Swal.fire({
       title: 'Are you sure?',
@@ -34,14 +25,15 @@ export async function getStaticProps() {
       confirmButtonText: 'Yes, delete it!'
     });
   
-    if (result.isConfirmed) {
+     if (result.isConfirmed) {
       // Perform the deletion using fetch
-      await fetch('https://cf5b-2001-44c8-428c-ac65-4823-1737-f822-2341.ngrok-free.app/api/user?id=' + id, {
+      fetch('http://localhost:3000/api/user?id=' + id, {
         method: 'DELETE',
       });
   
       // Reload the page
-      router.reload('/dashboard');
+
+      return router.push('/dashboard');
   
       // Show success message
       Swal.fire(
@@ -49,8 +41,9 @@ export async function getStaticProps() {
         'Your file has been deleted.',
         'success'
       );
-    }
+      }
   };
+
   
 
   if (session) {
@@ -101,7 +94,7 @@ export async function getStaticProps() {
                 <td>
                 <ul class="list-inline m-0">
                  <li class="list-inline-item">
-                      <button class="btn btn-success btn-sm rounded-0">Edit</button>
+                      <button><Link href={`/dashboard/editform?id=${post.id}`} className="btn btn-success btn-sm rounded-0">Edit</Link></button>
                    </li>
                     <li class="list-inline-item">
                    <button class="btn btn-danger btn-sm rounded-0" onClick={() => handleDelete(post.id)}>Delete</button>
@@ -136,4 +129,15 @@ export async function getStaticProps() {
 
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const res = await fetch('http://localhost:3000/api/user');
+  const posts = await res.json();
+
+  return {
+    props: {
+      posts,
+    },
+  }
 }
