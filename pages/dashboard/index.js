@@ -62,7 +62,7 @@ import Swal from 'sweetalert2';
       <div className="container mt-5">
         <div className="card mt-4">
           <div className="card-body">
-        <Link href ="./dashboard//user/add">
+        <Link href ="./dashboard/user/add">
         <button className="btn btn-warning">Add New</button>
         </Link>
 
