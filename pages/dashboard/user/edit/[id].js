@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 export async function getServerSideProps(req) {
   const { id } = req.query;
-  const res = await fetch('https://frontend-gray-beta.vercel.app/api/user/' + id, {
+  const res = await fetch('http://localhost:3000/api/user/' + id, {
     method: 'GET',
   })
   const posts = await res.json();
@@ -21,7 +21,7 @@ export default function Component({ posts }) {
   const router = useRouter();
 
 
-  const handleUpdate = (event) => {
+  const handleUpdate = (event) => {1
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const jsonData = {
@@ -34,7 +34,7 @@ export default function Component({ posts }) {
       status: data.get('status')
     }
 
-      fetch(`https://frontend-gray-beta.vercel.app/api/user`, {
+      fetch(`http://localhost:3000/api/user`, {
         method: 'PUT', // or 'PUT'
         headers: {
           'Content-Type': 'application/json',
