@@ -27,7 +27,7 @@ import Swal from 'sweetalert2';
   
      if (result.isConfirmed) {
       // Perform the deletion using fetch
-      fetch('http://localhost:3000/api/user/' + id, {
+      fetch('https://frontend-gray-beta.vercel.app/api/user/' + id, {
         method: 'DELETE',
       });
   
@@ -132,7 +132,7 @@ import Swal from 'sweetalert2';
 }
 
 export async function getServerSideProps() {
-  const res = await fetch('http://localhost:3000/api/user');
+  const res = await fetch('https://frontend-gray-beta.vercel.app/api/user');
   const posts = await res.json();
 
   return {
