@@ -29,7 +29,7 @@ import Swal from 'sweetalert2';
       // Perform the deletion using fetch
       fetch('https://frontend-gray-beta.vercel.app/api/user/' + id, {
         method: 'DELETE',
-      });
+      });x
   
       // Reload the page
 
