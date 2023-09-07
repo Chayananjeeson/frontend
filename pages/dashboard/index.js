@@ -27,7 +27,7 @@ import Swal from 'sweetalert2';
   
      if (result.isConfirmed) {
       // Perform the deletion using fetch
-      fetch('https://frontend-gray-beta.vercel.app/api/user/api/user?id=' + id, {
+      fetch('https://frontend-gray-beta.vercel.app/api/user/' + id, {
         method: 'DELETE',
       });
   
@@ -62,7 +62,7 @@ import Swal from 'sweetalert2';
       <div className="container mt-5">
         <div className="card mt-4">
           <div className="card-body">
-        <Link href ="./dashboard/addform">
+        <Link href ="./dashboard//user/add">
         <button className="btn btn-warning">Add New</button>
         </Link>
 
@@ -94,7 +94,7 @@ import Swal from 'sweetalert2';
                 <td>
                 <ul class="list-inline m-0">
                  <li class="list-inline-item">
-                      <button><Link href={`/dashboard/editform?id=${post.id}`} className="btn btn-success btn-sm rounded-0">Edit</Link></button>
+                      <button><Link href={`/dashboard/user/edit/${post.id}`} className="btn btn-success btn-sm rounded-0">Edit</Link></button>
                    </li>
                     <li class="list-inline-item">
                    <button class="btn btn-danger btn-sm rounded-0" onClick={() => handleDelete(post.id)}>Delete</button>

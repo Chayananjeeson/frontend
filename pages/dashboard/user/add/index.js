@@ -2,40 +2,28 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import Link from 'next/link';
 import { useRouter } from "next/router";
 
-export async function getServerSideProps(req) {
-  const id = req.query;
-  const res = await fetch('https://frontend-gray-beta.vercel.app/api/user?id=' + id, {
-    method: 'GET',
-  })
-  const posts = await res.json();
 
-  return {
-    props: {
-      posts,
-    },
-  };
-}
 
 export default function Component({ posts }) {
   const { data: session } = useSession();
   const router = useRouter();
-  
 
-  const handleUpdate = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const jsonData = {
-      id: data.get('studentid'),
       studentid: data.get('studentid'),
       firstname: data.get('firstname'),
       lastname: data.get('lastname'),
       username: data.get('username'),
       password: data.get('password'),
       status: data.get('status')
-    }
+    } 
 
-      fetch(`https://frontend-gray-beta.vercel.app/api/user`, {
-        method: 'PUT', // or 'PUT'
+    console.log("jsonData: ", jsonData)
+
+      fetch(`http://localhost:3000/api/user`, {
+        method: 'POST', // or 'PUT'
         headers: {
           'Content-Type': 'application/json',
         },
@@ -45,6 +33,7 @@ export default function Component({ posts }) {
       .then((data) => {
         if (data.status == 'ok') {
           router.push('/dashboard')
+          console.log("status: ", data.status)
         } else {
           console.log('Add Data Not Success')
           router.push('/dashboard')
@@ -52,10 +41,9 @@ export default function Component({ posts }) {
       })
       .catch((error) => {
         console.error('Error:', error);
-      });
- 
-
-  }; //end handleSubmit
+      })
+      
+  };
   
   // if (session) {
     
@@ -75,9 +63,7 @@ export default function Component({ posts }) {
           <div className="card-body">
           
             
-            <form onSubmit={handleUpdate}>
-             {posts.user.map((post, i) => (
-              <>
+            <form onSubmit={handleSubmit}>
             <button type = "submit" className="btn btn-success">Add New</button>
             <Link href ="/dashboard">
             <button className="btn btn-warning mx-1">Back</button>
@@ -85,46 +71,28 @@ export default function Component({ posts }) {
               <div className="form-row">
                 <div className="form-group col-md-10">
                   <label htmlFor="inputEmail4">Student Id</label>
-                  <input type="hidden" className="form-control" name ="studentid" id="studentid" placeholder="Student Id" 
-                  // onChange={(event) => { setPassword(event.target.value) }}
-                  defaultValue={post.id}
-                  required/>
+                  <input type="text" className="form-control" name ="studentid" id="studentid" placeholder="Student Id" />
                 </div>
                 <div className="form-group col-md-10">
                   <label htmlFor="inputEmail4">Firstname</label>
-                  <input type="text" className="form-control" name ="firstname" id="firstname" placeholder="Firstname" 
-                  // onChange={(event) => { setPassword(event.target.value) }}
-                  defaultValue={post.firstname}
-                  required/>
+                  <input type="text" className="form-control" name ="firstname" id="firstname" placeholder="Firstname" />
                 </div>
                 <div className="form-group col-md-10">
                   <label htmlFor="inputAddress">Lastname</label>
-                  <input type="text" className="form-control" name ="lastname" id="lastname" placeholder="Lastname" 
-                  // onChange={(event) => { setPassword(event.target.value) }}
-                  defaultValue={post.lastname}
-                  required/>
+                  <input type="text" className="form-control" name ="lastname" id="lastname" placeholder="Lastname" />
                 </div>
                 <div className="form-group col-md-10">
                   <label htmlFor="inputAddress">Username</label>
-                  <input type="text" className="form-control" name ="username" id="username" placeholder="Username"
-                  // onChange={(event) => { setPassword(event.target.value) }}
-                  defaultValue={post.username}
-                  required />
+                  <input type="text" className="form-control" name ="username" id="username" placeholder="Username" />
                 </div>
                 <div className="form-group col-md-10">
                   <label htmlFor="inputPassword4">Password</label>
-                  <input type="password" className="form-control" name ="password" id="password" placeholder="Password" 
-                  // onChange={(event) => { setPassword(event.target.value) }}
-                  defaultValue={post.password}
-                  required/>
+                  <input type="password" className="form-control" name ="password" id="password" placeholder="Password" />
                 </div>
               </div>
               <div className="form-group col-md-10">
                 <label htmlFor="inputAddress2">Status</label>
-                <input type="text" className="form-control" name ="status" id="status" placeholder="Status" 
-                // onChange={(event) => { setPassword(event.target.value) }}
-                defaultValue={post.status}
-                required/>
+                <input type="text" className="form-control" name ="status" id="status" placeholder="Status" />
               </div>
               <div className="form-group">
                 <div className="form-check">
@@ -134,8 +102,6 @@ export default function Component({ posts }) {
                   </label>
                 </div>
               </div>
-              </>
-              ))}
             </form>
           </div>
         </div>
