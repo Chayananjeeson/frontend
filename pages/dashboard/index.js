@@ -27,7 +27,7 @@ import Swal from 'sweetalert2';
   
      if (result.isConfirmed) {
       // Perform the deletion using fetch
-      fetch('http://localhost:3000/api/user?id=' + id, {
+      fetch('http://localhost:3000/api/user/api/user?id=' + id, {
         method: 'DELETE',
       });
   
